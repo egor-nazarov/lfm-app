@@ -1,0 +1,45 @@
+{
+    "name": "music-client-app",
+    "version": "1.0.0",
+    "description": "Simple client for Last.fm music service API based on react.js app",
+    "main": "webpack.config.js",
+    "scripts": {
+        "build": "webpack",
+        "clear": "del-cli dist"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/elkinegora/AntidaTestApp.git"
+    },
+    "keywords": [
+        "testExercise"
+    ],
+    "author": "Egor Elkin",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/elkinegora/AntidaTestApp/issues"
+    },
+    "homepage": "https://github.com/elkinegora/AntidaTestApp#readme",
+    "dependencies": {
+        "@types/react": "^16.4.14",
+        "@types/react-dom": "^16.0.8",
+        "cssnano": "^4.1.4",
+        "html-webpack-plugin": "latest",
+        "optimize-css-assets-webpack-plugin": "^5.0.1",
+        "react": "^16.5.2",
+        "react-dom": "^16.5.2"
+    },
+    "devDependencies": {
+        "awesome-typescript-loader": "^5.2.1",
+        "clean-webpack-plugin": "^0.1.19",
+        "css-loader": "^1.0.0",
+        "extract-text-webpack-plugin": "^4.0.0-beta.0",
+        "node-sass": "^4.9.3",
+        "sass-loader": "^7.1.0",
+        "source-map-loader": "^0.2.4",
+        "style-loader": "^0.23.0",
+        "typescript": "^3.1.1",
+        "webpack": "^4.20.2",
+        "webpack-cli": "^3.1.2"
+    }
+}
