@@ -10,7 +10,7 @@ export class Search extends React.Component<SearchProps, {}> {
         return (
             <div className="example-container">
                 <div className="wrapper">
-                    <h1>This is the Search component from {this.props.compiler} and {this.props.framework}!</h1>
+                    <h1>Заготовка компонента поиска на языке программирования {this.props.compiler} и фреймворке {this.props.framework}!</h1>
                 </div>
             </div>
         );
