@@ -1,0 +1,5 @@
+$root-size-px: 16px;
+@function rem ($target, $context: $root-size-px)
+{
+    @return ($target / $context) * 1rem;
+}

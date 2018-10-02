@@ -5,6 +5,7 @@
     "main": "webpack.config.js",
     "scripts": {
         "build": "webpack",
+        "server": "webpack-dev-server",
         "clear": "del-cli dist"
     },
     "repository": {
