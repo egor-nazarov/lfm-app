@@ -2,10 +2,10 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 
 import "../css/main.scss";
-import {Header} from "./components/Header";
-import {Search} from "./components/Search";
-import {TopArtists} from "./components/TopArtists";
-import {Footer} from "./components/Footer";
+import Header from "./components/Header";
+import Search from "./components/Search";
+import TopArtists from "./components/TopArtists";
+import Footer from "./components/Footer";
 
 ReactDOM.render(
     <Header/>,

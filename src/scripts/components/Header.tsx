@@ -1,8 +1,6 @@
 import * as React from "react";
 
-export interface HeaderProps {}
-
-export class Header extends React.Component<HeaderProps, {}> {
+export default class Header extends React.Component {
     render() {
         return (
             <div className="header__container">

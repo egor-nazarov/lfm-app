@@ -1,8 +1,6 @@
 import * as React from "react";
 
-export interface FooterProps {}
-
-export class Footer extends React.Component<FooterProps, {}> {
+export default class Footer extends React.Component {
     render() {
         return (
             <div className="wrapper">

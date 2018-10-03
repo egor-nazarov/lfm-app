@@ -5,7 +5,7 @@ export interface SearchProps {
     framework: string;
 }
 
-export class Search extends React.Component<SearchProps, {}> {
+export default class Search extends React.Component<SearchProps, {}> {
     render() {
         return (
             <div className="example-container">
