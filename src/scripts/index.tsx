@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Search from "./components/Search";
 import TopArtists from "./components/TopArtists";
 import Footer from "./components/Footer";
+import "./components/ArtistRequest";
 
 ReactDOM.render(
     <Header/>,
@@ -13,12 +14,12 @@ ReactDOM.render(
 );
 
 ReactDOM.render(
-    <Search compiler="TypeScript" framework="React"/>,
+    <Search/>,
     document.getElementById("pageSearch")
 );
 
 ReactDOM.render(
-    <TopArtists />,
+    <TopArtists/>,
     document.getElementById("topArtists")
 );
 
