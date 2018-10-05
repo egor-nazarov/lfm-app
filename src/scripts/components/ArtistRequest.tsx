@@ -1,7 +1,18 @@
 import * as React from "react";
 
 export default class ArtistRequest extends React.Component {
+    constructor(props: any){
+        super(props);
+    }
 
+    public render() {
+        return (
+            <div>
+                new line from artist request
+
+            </div>
+        );
+    }
 }
 
 $(document).ready(function() {
