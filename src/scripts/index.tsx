@@ -7,6 +7,7 @@ import Search from "./components/Search";
 import TopArtists from "./components/TopArtists";
 import Footer from "./components/Footer";
 import "./components/ArtistRequest";
+import "./components/testing/main";
 
 ReactDOM.render(
     <Header/>,
