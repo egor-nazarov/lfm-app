@@ -1,8 +1,8 @@
 import * as React from 'react';
-import HelloForm from './HelloForm';
-import HelloContent from './HelloContent';
+import SearchInput from "./SearchInput";
+import SearchButton from "./SearchButton";
 
-export default class HelloWorld extends React.Component<any, any> {
+export default class SearchField extends React.Component<any, any> {
     constructor(props: any){
         super(props);
         this.state = { name: this.props.defaultName };
@@ -13,14 +13,14 @@ export default class HelloWorld extends React.Component<any, any> {
         this.setState({name:event.target.value});
     }
 
-    public render() {
-        return (
+    public render(){
+        return(
             <div>
-                <HelloForm
-                    name ={ this.state.name }
-                    handleOnChange ={ this.handleOnChange }
+                <SearchInput
+                    name={ this.state.name }
+                    handleOnChange={ this.handleOnChange }
                 />
-                <HelloContent
+                <SearchButton
                     name ={ this.state.name }
                 />
             </div>

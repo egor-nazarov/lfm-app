@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-export default class HelloContent extends React.Component<IHelloContentProps, any>{
-    constructor(props:IHelloContentProps){
+export default class SearchButton extends React.Component<SearchButtonProps, any>{
+    constructor(props:SearchButtonProps){
         super(props);
     }
 

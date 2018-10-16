@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export default class ArtistRequest extends React.Component {
+export default class ArtistRequest extends React.Component<any, any> {
     constructor(props: any){
         super(props);
     }
@@ -9,7 +9,6 @@ export default class ArtistRequest extends React.Component {
         return (
             <div>
                 new line from artist request
-
             </div>
         );
     }

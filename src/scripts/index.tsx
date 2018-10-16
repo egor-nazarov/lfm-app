@@ -2,29 +2,21 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 
 import "../css/main.scss";
-import Header from "./components/Header";
-import Search from "./components/Search";
-import TopArtists from "./components/TopArtists";
-import Footer from "./components/Footer";
-import "./components/ArtistRequest";
-import "./components/testing/main";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import Search from "./components/Search/Search";
 
 ReactDOM.render(
-    <Header/>,
+    <Header />,
     document.getElementById("pageHeader")
 );
 
 ReactDOM.render(
-    <Search/>,
+    <Search />,
     document.getElementById("pageSearch")
 );
 
 ReactDOM.render(
-    <TopArtists/>,
-    document.getElementById("topArtists")
-);
-
-ReactDOM.render(
-    <Footer/>,
+    <Footer />,
     document.getElementById("pageFooter")
 );

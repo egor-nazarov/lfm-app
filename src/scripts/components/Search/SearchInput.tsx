@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-export default class HelloForm extends React.Component<IHelloFormProps, any> {
-    constructor(props:IHelloFormProps){
+export default class SearchInput extends React.Component<SearchInputProps, any> {
+    constructor(props:SearchInputProps){
         super(props);
     }
 
@@ -11,6 +11,7 @@ export default class HelloForm extends React.Component<IHelloFormProps, any> {
                 <input
                     value={ this.props.name }
                     onChange={ e => this.props.handleOnChange(e) }
+                    placeholder="Введите исполнителя"
                 />
             </div>
         );

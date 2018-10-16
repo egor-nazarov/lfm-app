@@ -1,9 +1,9 @@
-interface IHelloFormProps {
+interface SearchInputProps {
     name: any;
     handleOnChange(event: any): void;
 }
 
-interface IHelloContentProps {
+interface SearchButtonProps {
     name: string;
 
 }
