@@ -1,5 +1,6 @@
 import * as React from "react";
 import SearchField from './SearchField';
+// import ArtistRequest from './ArtistRequest';
 
 export default class Search extends React.Component<any, any> {
     constructor(props:any) {
@@ -10,7 +11,7 @@ export default class Search extends React.Component<any, any> {
         return (
             <div className="example-container">
                 <div className="wrapper">
-                    <h1>Заготовка компонента поиска на языке программирования!</h1>
+                    <h1>Введите имя Вашего любимого исполнителя</h1>
                     <SearchField defaultName='Исполнителя' />
                     {/*<ArtistRequest/>*/}
                 </div>

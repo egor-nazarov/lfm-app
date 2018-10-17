@@ -5,5 +5,4 @@ interface SearchInputProps {
 
 interface SearchButtonProps {
     name: string;
-
 }

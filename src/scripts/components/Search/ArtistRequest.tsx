@@ -1,8 +1,24 @@
 import * as React from "react";
+import axios from 'axios';
 
 export default class ArtistRequest extends React.Component<any, any> {
     constructor(props: any){
         super(props);
+        this.state = {
+            users: [],
+        }
+    }
+
+    componentDidMount(){
+        axios.get('https://randomuser.me/api/?results=10&inc=name,registered&nat=fr')
+            .then(json => json.data.results.map((result:any) => (
+                {
+                    name: `${result.name.first} ${result.name.last}`,
+                    id: result.registered
+                }
+            )))
+            .then(newData => this.setState({users: newData,  store: newData}))
+            .catch(error => alert(error))
     }
 
     public render() {
@@ -14,6 +30,7 @@ export default class ArtistRequest extends React.Component<any, any> {
     }
 }
 
+// http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=Coldplay&user=test&api_key=4a9f5581a9cdf20a699f540ac52a95c9&limit=10&format=json&callback=?
 // $(document).ready(function() {
 //     const UserApiKey = "4a9f5581a9cdf20a699f540ac52a95c9";
 //     const Artist = "Coldplay";
