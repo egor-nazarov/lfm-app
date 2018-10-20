@@ -1,8 +1,61 @@
-.header__container {
-    width: 100%;
-    align-self: flex-end;
-    background-color: rgb(88, 209, 243);
-    color: #fff;
-    padding: 1.5625rem 2.5rem;
-    text-align: center;
+.header__container
+{
+	align-self: flex-end;
+	background-color: rgb(88, 209, 243);
+	color: #FFFFFF;
+	text-align: center;
+	width: 100%;
+	ul
+	{
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		li
+		{
+			margin: 0 5px;
+			padding: 30px 0;
+		}
+		a
+		{
+			color: black;
+			font-size: 18px;
+			padding: 5px;
+			text-decoration: none;
+			&:hover
+			{
+				span
+				{
+					border-color: rgba(0, 0, 0, 0.5);
+				}
+			}
+			span
+			{
+				border-bottom: 1px solid transparent;
+				transition: border-color 0.5s;
+			}
+		}
+	}
+}
+.header
+{
+	&__button
+	{
+		&_home, &_phone-call
+		{
+			align-items: center;
+			display: flex;
+			opacity: 1;
+			transform: scale(1);
+			transition: 0.5s ;
+			&:hover
+			{
+				opacity: 0.8;
+				transform: scale(1.2);
+			}
+			svg
+			{
+				width: 35px;
+			}
+		}
+	}
 }

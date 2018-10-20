@@ -1,12 +1,12 @@
-@import "additional/reset";
-@import "additional/mixins";
+@import 'additional/reset';
+@import 'additional/mixins';
 
 *
 {
-    -webkit-appearance: none;
-    border-radius: 0;
-    box-sizing: border-box;
-    -webkit-overflow-scrolling: touch;
+	-webkit-appearance: none;
+	border-radius: 0;
+	box-sizing: border-box;
+	-webkit-overflow-scrolling: touch;
 }
 body
 {
@@ -18,17 +18,29 @@ body
 }
 main
 {
-    display: block;
-    width: 100%;
-    padding: 0 0 rem(50px);
+	display: block;
+	min-height: calc(100vh - 66px);
+	width: 100%;
 }
 .wrapper
 {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 0 20px;
+}
+.content
+{
+	&__divider
+	{
+		&_horizontal
+		{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+	}
 }
 
-@import "additional/header";
-@import "additional/frontContent";
-@import "additional/footer";
+@import 'additional/header';
+@import 'additional/frontContent';
+@import 'additional/footer';

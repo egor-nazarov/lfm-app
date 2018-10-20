@@ -1,22 +1,13 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import {BrowserRouter, Route} from "react-router-dom";
 
 import "../css/main.scss";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import Search from "./components/Search/Search";
+import ComponentsHandler from "./components/ComponentsHandler";
 
 ReactDOM.render(
-    <Header />,
-    document.getElementById("pageHeader")
-);
-
-ReactDOM.render(
-    <Search />,
-    document.getElementById("pageSearch")
-);
-
-ReactDOM.render(
-    <Footer />,
-    document.getElementById("pageFooter")
+    <BrowserRouter>
+        <Route path="/" component={ComponentsHandler} />
+    </BrowserRouter>,
+    document.getElementById('mainContent')
 );
