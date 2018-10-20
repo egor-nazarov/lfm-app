@@ -2,10 +2,6 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 
 export default class Artist extends React.Component<any, any> {
-    constructor(props:any) {
-        super(props);
-    }
-
     render() {
         return (
             <section id="artistInfo" className="page-content__container">
@@ -18,6 +14,6 @@ export default class Artist extends React.Component<any, any> {
                     </div>
                 </div>
             </section>
-    );
+        );
     }
 };

@@ -1,11 +1,14 @@
-@import 'additional/reset';
-@import 'additional/mixins';
+@import './additional/reset';
+@import './additional/mixins';
+@import './additional/header/header';
+@import './additional/animations/pages-transition';
 
 *
 {
 	-webkit-appearance: none;
 	border-radius: 0;
 	box-sizing: border-box;
+	outline: none;
 	-webkit-overflow-scrolling: touch;
 }
 body
@@ -40,7 +43,15 @@ main
 		}
 	}
 }
+.page-content__container
+{
+	padding: 50px 0;
+	h1
+	{
+		margin: 0 0 20px;
+		text-align: center;
+	}
+}
 
-@import 'additional/header';
-@import 'additional/frontContent';
-@import 'additional/footer';
+@import './additional/search/SearchField';
+@import './additional/footer/footer';

@@ -4,17 +4,27 @@ import SearchField from './SearchField';
 export default class Search extends React.Component<any, any> {
     constructor(props:any) {
         super(props);
+        this.state = {
+            name: "",
+            artistName: ""
+        };
+    }
+
+    onChangeArtistValue(newArtistName:any){
+        this.setState({
+            artistName: newArtistName
+        });
+        this.props.callArtistValue(this.state.artistName);
     }
 
     render() {
         return (
             <section id="pageSearch" className="page-content__container">
-                <div className="example-container">
-                    <div className="wrapper">
-                        <h1>Введите имя Вашего любимого исполнителя</h1>
-                        <SearchField defaultName='' />
-                    </div>
-                </div>
+                <h1>Давайте вместе поищем вашего любимого исполнителя</h1>
+                <SearchField
+                    defaultName={ this.state.name }
+                    callArtistValue={ this.onChangeArtistValue.bind(this) }
+                />
             </section>
         );
     }

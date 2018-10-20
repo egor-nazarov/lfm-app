@@ -2,6 +2,7 @@ import * as React from "react";
 import SearchInput from "./SearchInput";
 import SearchButton from "./SearchButton";
 import axios from "axios";
+import {NavLink} from "react-router-dom";
 
 export default class SearchField extends React.Component<any, any> {
     constructor(props: any){
@@ -9,9 +10,9 @@ export default class SearchField extends React.Component<any, any> {
         this.state = {
             artists: [],
             name: this.props.defaultName,
-            placeHolder: "введите исполнителя",
             value: "",
-            inputedArtist: ""
+            inputedArtist: "",
+            searchedArtist: ""
         };
         this.handleOnChange = this.handleOnChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,6 +32,10 @@ export default class SearchField extends React.Component<any, any> {
             .then(res => {
                 const artists = res.data.results.artistmatches.artist;
                 this.setState({ artists });
+                this.setState({
+                    searchedArtist: inputedArtist
+                });
+                this.props.callArtistValue(this.state.searchedArtist);
             });
         event.preventDefault();
     }
@@ -39,22 +44,22 @@ export default class SearchField extends React.Component<any, any> {
         return(
             <div className="search-field__wrapper">
                 <form onSubmit={this.handleSubmit}>
-                    <SearchInput
-                        name={ this.state.name }
-                        handleOnChange={ this.handleOnChange }
-                    />
-                    <SearchButton
-                        name ={ this.state.name }
-                    />
+                    <div className="search-field__input-handler">
+                        <SearchInput
+                            name={ this.state.name }
+                            handleOnChange={ this.handleOnChange }
+                        />
+                        <SearchButton
+                            name ={ this.state.name }
+                        />
+                    </div>
                 </form>
                 <ul>
                     { this.state.artists.map((artist:any) => <li key={ artist.listeners }>
-                        <span><b>Имя исполнителя:</b> <a href={ artist.url }>{ artist.name }</a></span>
-                        <p>
-                            <a target="_blank" href={ artist.url } title={ "Посетить страницу " + artist.name }>
-                                <img src={ artist.image[4]['#text'] } alt={ "У исполнителя " + artist.name + " отсутствует изображение" } />
-                            </a>
-                        </p>
+                        <NavLink to="/artist" activeClassName="active">
+                            <span>Имя исполнителя: { artist.name }</span>
+                            <img src={ artist.image[1]['#text'] } alt={ "У исполнителя " + artist.name + " отсутствует изображение" } />
+                        </NavLink>
                     </li>) }
                 </ul>
             </div>
