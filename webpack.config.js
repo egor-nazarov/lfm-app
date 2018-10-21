@@ -1,17 +1,22 @@
 const HtmlWebpackPlugin         = require('html-webpack-plugin');
 const ExtractTextPlugin         = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsPlugin   = require('optimize-css-assets-webpack-plugin');
+const path                      = require('path');
 
 module.exports = {
     entry: "./src/scripts/index.tsx",
     output: {
         filename: "./scripts/bundle.js",
-        path: __dirname + "/dist/"
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/'
     },
 
     devtool: "source-map",
     mode: 'development',
     watch: false,
+    devServer: {
+        historyApiFallback: true,
+    },
 
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".json"]

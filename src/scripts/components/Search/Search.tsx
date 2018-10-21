@@ -6,7 +6,8 @@ export default class Search extends React.Component<any, any> {
         super(props);
         this.state = {
             name: "",
-            artistName: ""
+            artistName: "",
+            artistSelected: "",
         };
     }
 
@@ -16,6 +17,13 @@ export default class Search extends React.Component<any, any> {
         });
         this.props.callArtistValue(this.state.artistName);
     }
+    onSelectArtistValue(newArtistSelected:any){
+        this.setState({
+            artistSelected: newArtistSelected
+        });
+
+        this.props.callArtistSelection(this.state.artistSelected);
+    }
 
     render() {
         return (
@@ -24,6 +32,7 @@ export default class Search extends React.Component<any, any> {
                 <SearchField
                     defaultName={ this.state.name }
                     callArtistValue={ this.onChangeArtistValue.bind(this) }
+                    callArtistSelection={ this.onSelectArtistValue.bind(this) }
                 />
             </section>
         );

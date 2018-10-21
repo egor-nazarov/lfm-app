@@ -11,33 +11,39 @@ export default class ComponentsHandler extends React.Component<any, any> {
     constructor(props:any){
         super(props);
         this.state = {
-            artistName: ""
+            artistName: "",
+            artistSelected: ""
         };
     }
     onChangeArtistValue(newArtistName:any){
         this.setState({
             artistName: newArtistName
         });
-        console.log("получили и записали новый this.state в компоненте ComponentsHandler === " + this.state.artistName);
+    }
+    onSelectArtistValue(newArtistSelected:any){
+        this.setState({
+            artistSelected: newArtistSelected
+        });
     }
 
     render(){
         return(
             <div className="page__container">
-                <Header />
-                { console.log("начальный this.state в компоненте ComponentsHandler === " + this.state.artistName) }
-                <div className="wrapper">
-                    <p>{ this.state.artistName ? ( "Вот мы и получили артиста: " + this.state.artistName + " из компонента SearchField" ) : null }</p>
-                </div>
+                <Header transferedArtistName={ this.state.artistName } />
                 <div className="content__container wrapper">
                     <Route render={({location}) => (
                         <TransitionGroup>
                             <CSSTransition key={location.key} timeout={500} classNames="fade">
                                 <Switch location={location}>
                                     <Route exact path="/">
-                                        <Search callArtistValue={ this.onChangeArtistValue.bind(this) } />
+                                        <Search
+                                            callArtistValue={ this.onChangeArtistValue.bind(this) }
+                                            callArtistSelection={ this.onSelectArtistValue.bind(this) }
+                                        />
                                     </Route>
-                                    <Route path="/artist" component={Artist}/>
+                                    <Route path="/artist">
+                                        <Artist transferedArtistName={ this.state.artistName } />
+                                    </Route>
                                 </Switch>
                             </CSSTransition>
                         </TransitionGroup>

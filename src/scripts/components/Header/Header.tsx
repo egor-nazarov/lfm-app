@@ -1,7 +1,7 @@
 import * as React from "react";
 import {NavLink} from "react-router-dom";
 
-export default class Header extends React.Component {
+export default class Header extends React.Component<any, any> {
     render() {
         return (
             <header id="pageHeader">
@@ -15,7 +15,7 @@ export default class Header extends React.Component {
                             </NavLink>
                             <ul>
                                 <li><NavLink exact to="/" activeClassName="active"><span>Главная</span></NavLink></li>
-                                <li><NavLink to="/artist" activeClassName="active"><span>Страница исполнителя</span></NavLink></li>
+                                { this.props.transferedArtistName ? (<li><NavLink to="/artist" activeClassName="active"><span>Страница исполнителя</span></NavLink></li>) : null}
                             </ul>
                             <a href="tel:+79227037986" className="header__button_phone-call" title="Позвонить автору">
                                 <span>

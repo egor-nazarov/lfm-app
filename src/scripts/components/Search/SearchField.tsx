@@ -11,8 +11,8 @@ export default class SearchField extends React.Component<any, any> {
             artists: [],
             name: this.props.defaultName,
             value: "",
-            inputedArtist: "",
-            searchedArtist: ""
+            searchedArtist: "",
+            artistSelected: "",
         };
         this.handleOnChange = this.handleOnChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,6 +40,12 @@ export default class SearchField extends React.Component<any, any> {
         event.preventDefault();
     }
 
+    onClickArtistSelect(artist:any) : void {
+        this.setState({
+            artistSelected: artist.name
+        });
+    }
+
     public render(){
         return(
             <div className="search-field__wrapper">
@@ -55,11 +61,17 @@ export default class SearchField extends React.Component<any, any> {
                     </div>
                 </form>
                 <ul>
-                    { this.state.artists.map((artist:any) => <li key={ artist.listeners }>
-                        <NavLink to="/artist" activeClassName="active">
-                            <span>Имя исполнителя: { artist.name }</span>
-                            <img src={ artist.image[1]['#text'] } alt={ "У исполнителя " + artist.name + " отсутствует изображение" } />
-                        </NavLink>
+                    { this.state.artists.map((artist:any, i:any) => <li key={ i }>
+                        { artist.image[1]['#text'] ? (
+                            <NavLink
+                                onClick={this.onClickArtistSelect.bind(this,artist)}
+                                to="/artist"
+                                activeClassName="active"
+                            >
+                                <span>Имя исполнителя: { artist.name }</span>
+                                <img src={ artist.image[1]['#text'] } alt={ "К сожалению, в нашей медиатеке нет изображений исполнителя " + artist.name } />
+                            </NavLink>
+                        ) : null }
                     </li>) }
                 </ul>
             </div>
