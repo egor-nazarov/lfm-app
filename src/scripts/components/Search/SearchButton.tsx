@@ -5,7 +5,8 @@ export default class SearchButton extends React.Component<SearchButtonProps, any
         return(
             <button
                 type="submit"
-                title="Искать!">
+                title="Искать!"
+            >
                 Искать { this.props.name }
             </button>
         );

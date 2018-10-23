@@ -8,14 +8,9 @@ export default class Header extends React.Component<any, any> {
                 <div className="header__container">
                     <div className="wrapper">
                         <div className="content__divider_horizontal">
-                            <NavLink exact to="/" activeClassName="active" className="header__button_home" title="Вернуться домой">
-                                <span>
-                                    <svg version="1.1" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><polygon points="4.5 38.5 4.5 19.5 25.5 19.5 25.5 32.5 32.5 32.5 32.5 19.5 35.5 19.5 35.5 38.5" fill="#F5CE85"/><path d="m35 20v18h-30v-18h20v13h8v-13h2m1-1h-4v13h-6v-13h-22v20h32v-20z" fill="#967A44"/><rect x="10.5" y="23.5" width="9" height="9" fill="#DBF2FF"/><path d="m19 24v8h-8v-8h8m1-1h-10v10h10v-10z" fill="#4E7AB5"/><polygon points="1.5 19.5 1.5 19.227 9.187 12.5 30.812 12.5 38.5 19.227 38.5 19.5" fill="#B08159"/><path d="m30.624 13l6.857 6h-34.962l6.857-6h21.248m0.376-1h-22l-8 7v1h38v-1l-8-7z" fill="#704E34"/><polygon points="5.5 12.5 5.5 12.253 20 1.62 34.5 12.253 34.5 12.5" fill="#B08159"/><path d="M20,2.24L33.309,12H6.691L20,2.24 M20,1L5,12v1h30v-1L20,1L20,1z" fill="#704E34"/></svg>
-                                </span>
-                            </NavLink>
                             <ul>
-                                <li><NavLink exact to="/" activeClassName="active"><span>Главная</span></NavLink></li>
-                                { this.props.transferedArtistName ? (<li><NavLink to="/artist" activeClassName="active"><span>Страница исполнителя</span></NavLink></li>) : null}
+                                <li><NavLink exact to="/" activeClassName="active"><span>Поиск</span></NavLink></li>
+                                { this.props.transferedArtistName ? (<li><NavLink to="/artist" activeClassName="active"><span>Альбомы</span></NavLink></li>) : null}
                             </ul>
                             <a href="tel:+79227037986" className="header__button_phone-call" title="Позвонить автору">
                                 <span>

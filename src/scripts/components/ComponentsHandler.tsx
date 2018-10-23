@@ -29,7 +29,7 @@ export default class ComponentsHandler extends React.Component<any, any> {
     render(){
         return(
             <div className="page__container">
-                <Header transferedArtistName={ this.state.artistName } />
+                <Header transferedArtistName={ this.state.artistSelected } />
                 <div className="content__container wrapper">
                     <Route render={({location}) => (
                         <TransitionGroup>
@@ -39,10 +39,14 @@ export default class ComponentsHandler extends React.Component<any, any> {
                                         <Search
                                             callArtistValue={ this.onChangeArtistValue.bind(this) }
                                             callArtistSelection={ this.onSelectArtistValue.bind(this) }
+                                            transferedArtistName={ this.state.artistName }
                                         />
                                     </Route>
                                     <Route path="/artist">
-                                        <Artist transferedArtistName={ this.state.artistName } />
+                                        <Artist
+                                            transferedArtistName={ this.state.artistName }
+                                            submittedArtistName={ this.state.artistSelected }
+                                        />
                                     </Route>
                                 </Switch>
                             </CSSTransition>

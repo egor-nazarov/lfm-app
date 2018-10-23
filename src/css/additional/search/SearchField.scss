@@ -43,10 +43,14 @@
 						transform: scale(1.05);
 					}
 				}
+				p
+				{
+					max-width: 50%;
+                    text-align: left;
+				}
 				span
 				{
 					border-bottom: 1px solid transparent;
-					max-width: 50%;
 					transition: border-bottom-color 0.5s;
 				}
 				img

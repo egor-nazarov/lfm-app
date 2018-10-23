@@ -4,8 +4,7 @@
     "description": "Simple client for Last.fm music service API based on react.js app",
     "main": "webpack.config.js",
     "scripts": {
-        "build": "webpack",
-        "server": "webpack-dev-server",
+        "server": "webpack-dev-server --history-api-fallback",
         "clear": "del-cli dist"
     },
     "repository": {

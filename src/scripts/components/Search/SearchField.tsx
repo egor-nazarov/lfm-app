@@ -12,7 +12,7 @@ export default class SearchField extends React.Component<any, any> {
             name: this.props.defaultName,
             value: "",
             searchedArtist: "",
-            artistSelected: "",
+            selectedArtist: ""
         };
         this.handleOnChange = this.handleOnChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,7 +27,7 @@ export default class SearchField extends React.Component<any, any> {
 
     public handleSubmit(event:any) : void {
         const inputedArtist = this.state.value;
-        const url = "http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=" + inputedArtist + "&api_key=a3057b25ed2acd6143c4543e74a2cbe6&limit=10&format=json";
+        const url = "http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=" + inputedArtist + "&api_key=a3057b25ed2acd6143c4543e74a2cbe6&format=json";
         axios.get(url)
             .then(res => {
                 const artists = res.data.results.artistmatches.artist;
@@ -41,9 +41,24 @@ export default class SearchField extends React.Component<any, any> {
     }
 
     onClickArtistSelect(artist:any) : void {
-        this.setState({
-            artistSelected: artist.name
-        });
+        const catchedArtist = artist.name;
+        this.props.callArtistSelected(catchedArtist);
+    }
+
+    componentWillMount()
+    {
+        if (this.props.transferedArtistName)
+        {const inputedArtist = this.props.transferedArtistName;
+            const url = "http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=" + inputedArtist + "&api_key=a3057b25ed2acd6143c4543e74a2cbe6&format=json";
+            axios.get(url)
+                .then(res => {
+                    const artists = res.data.results.artistmatches.artist;
+                    this.setState({ artists });
+                    this.setState({
+                        searchedArtist: inputedArtist
+                    });
+                    this.props.callArtistValue(this.state.searchedArtist);
+                });}
     }
 
     public render(){
@@ -68,7 +83,9 @@ export default class SearchField extends React.Component<any, any> {
                                 to="/artist"
                                 activeClassName="active"
                             >
-                                <span>Имя исполнителя: { artist.name }</span>
+                                <p>
+                                    <span>Имя исполнителя: { artist.name }</span>
+                                </p>
                                 <img src={ artist.image[1]['#text'] } alt={ "К сожалению, в нашей медиатеке нет изображений исполнителя " + artist.name } />
                             </NavLink>
                         ) : null }
