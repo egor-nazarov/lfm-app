@@ -31,11 +31,16 @@ export default class SearchField extends React.Component<any, any> {
         axios.get(url)
             .then(res => {
                 const artists = res.data.results.artistmatches.artist;
-                this.setState({ artists });
-                this.setState({
-                    searchedArtist: inputedArtist
-                });
-                this.props.callArtistValue(this.state.searchedArtist);
+                const emptyRequest = res.data.results.artistmatches.artist;
+                if (emptyRequest.length == 0) {
+                    alert( "Ой, что-то пошло не так. Введите, пожалуйста, корректное название исполнителя!" );
+                } else {
+                    this.setState({ artists });
+                    this.setState({
+                        searchedArtist: inputedArtist
+                    });
+                    this.props.callArtistValue(this.state.searchedArtist);
+                }
             });
         event.preventDefault();
     }
@@ -65,7 +70,8 @@ export default class SearchField extends React.Component<any, any> {
         return(
             <div className="search-field__wrapper">
                 <form onSubmit={this.handleSubmit}>
-                    <div className="search-field__input-handler">
+                    <p>Введите имя <br/>исполнителя</p>
+                    <div className="search-field__input-handler" >
                         <SearchInput
                             name={ this.state.name }
                             handleOnChange={ this.handleOnChange }
@@ -84,7 +90,7 @@ export default class SearchField extends React.Component<any, any> {
                                 activeClassName="active"
                             >
                                 <p>
-                                    <span>Имя исполнителя: { artist.name }</span>
+                                    <span>{ artist.name }</span>
                                 </p>
                                 <img src={ artist.image[1]['#text'] } alt={ "К сожалению, в нашей медиатеке нет изображений исполнителя " + artist.name } />
                             </NavLink>

@@ -26,14 +26,15 @@ export default class Search extends React.Component<any, any> {
     render() {
         return (
             <section id="pageSearch" className="page-content__container">
-                <h1>Давайте вместе поищем вашего любимого исполнителя</h1>
-                { this.props.transferedArtistName ? ( <p>Последнее что вы искали <b>{ this.props.transferedArtistName }</b></p> ) : null }
-                <SearchField
-                    defaultName={ this.state.name }
-                    callArtistValue={ this.onChangeArtistValue.bind(this) }
-                    callArtistSelected={ this.onSelectArtistValue.bind(this) }
-                    transferedArtistName={ this.props.transferedArtistName }
-                />
+                { this.props.transferedArtistName ? ( <p>Последнее, что вы искали <b>{ this.props.transferedArtistName }</b></p> ) : null }
+                <div className="content__divider_horizontal">
+                    <SearchField
+                        defaultName={ this.state.name }
+                        callArtistValue={ this.onChangeArtistValue.bind(this) }
+                        callArtistSelected={ this.onSelectArtistValue.bind(this) }
+                        transferedArtistName={ this.props.transferedArtistName }
+                    />
+                </div>
             </section>
         );
     }
