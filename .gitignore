@@ -3,3 +3,4 @@
 /.idea
 /npm-debug.log
 package-lock.json
+/build
