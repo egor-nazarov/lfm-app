@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import { BrowserRouter, Route} from "react-router-dom";
 import "../css/main.scss";
 import ComponentsHandler from "./components/ComponentsHandler";
-import createBrowserHistory from "history/createBrowserHistory";
+import {createBrowserHistory} from "history";
 
 ReactDOM.render(
     <BrowserRouter >
