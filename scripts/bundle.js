@@ -36887,8 +36887,14 @@ class Artist extends React.Component {
     componentDidMount() {
         const artistSelected = this.props.submittedArtistName;
         const replacedWhiteSpaces = artistSelected.split(' ').join('+');
-        const url = "http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" + replacedWhiteSpaces + "&api_key=a3057b25ed2acd6143c4543e74a2cbe6&format=json";
-        axios_1.default.get(url)
+        const url = "https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" + replacedWhiteSpaces + "&api_key=a3057b25ed2acd6143c4543e74a2cbe6&format=json";
+        axios_1.default.get(url, {
+            method: 'GET',
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json',
+            },
+        })
             .then(res => {
             const newData = res.data.error;
             if (newData == 6) {
@@ -37145,8 +37151,14 @@ class SearchField extends React.Component {
     }
     handleSubmit(event) {
         const inputedArtist = this.state.value;
-        const url = "http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=" + inputedArtist + "&api_key=a3057b25ed2acd6143c4543e74a2cbe6&format=json";
-        axios_1.default.get(url)
+        const url = "https://ws.audioscrobbler.com/2.0/?method=artist.search&artist=" + inputedArtist + "&api_key=a3057b25ed2acd6143c4543e74a2cbe6&format=json";
+        axios_1.default.get(url, {
+            method: 'GET',
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json',
+            },
+        })
             .then(res => {
             const artists = res.data.results.artistmatches.artist;
             const emptyRequest = res.data.results.artistmatches.artist;
@@ -37170,8 +37182,14 @@ class SearchField extends React.Component {
     componentWillMount() {
         if (this.props.transferedArtistName) {
             const inputedArtist = this.props.transferedArtistName;
-            const url = "http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=" + inputedArtist + "&api_key=a3057b25ed2acd6143c4543e74a2cbe6&format=json";
-            axios_1.default.get(url)
+            const url = "https://ws.audioscrobbler.com/2.0/?method=artist.search&artist=" + inputedArtist + "&api_key=a3057b25ed2acd6143c4543e74a2cbe6&format=json";
+            axios_1.default.get(url, {
+                method: 'GET',
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json',
+                },
+            })
                 .then(res => {
                 const artists = res.data.results.artistmatches.artist;
                 this.setState({ artists });
